@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPS_IHM
 {
-    public partial class Form1 : Form
+    public partial class Result : Form
     {
-        public Form1()
+        public Result()
         {
             InitializeComponent();
         }
