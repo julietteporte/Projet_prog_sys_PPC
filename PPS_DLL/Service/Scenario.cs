@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPS_DLL.Business.Mapper;
+using PPS_DLL.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace PPS_DLL.Service
 {
     public class Scenario
     {
+        ProjetContext context;
         public int Id { get; set; }
         public int nbrCookChief { get; set; }
         public int nbrChiefRank { get; set; }
@@ -20,12 +23,37 @@ namespace PPS_DLL.Service
 
         public Scenario()
         {
-
+            context = new ProjetContext();
         }
 
-        public void SelectScenario()
+        public void Add(Business.Scenario business)
         {
-            // TODO implement here
+            var entity = MapperScenario.Map(business);
+            context.Scenario.Add(entity);
+            context.SaveChanges();
         }
+        public void Delete(int id)
+        {
+            var entity = (from c in context.Scenario where c.Id == id select c).FirstOrDefault();
+            if (entity != null)
+            {
+                context.Scenario.Remove(entity);
+                context.SaveChanges();
+            }
+
+        }
+        public void Update(Business.Scenario business)
+        {
+            var entity = (from c in context.Scenario where c.Id == business.Id select c).FirstOrDefault();
+            entity.Name = business.Name;
+            context.SaveChanges();
+        }
+
+        public List<Business.Scenario> Select()
+        {
+            return (from c in context.Scenario select MapperScenario.Map(c)).ToList();
+
+        }
+
     }
 }

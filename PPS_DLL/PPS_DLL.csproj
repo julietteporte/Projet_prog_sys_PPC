@@ -142,7 +142,9 @@
     <Compile Include="Data\DAO\Scenario.cs" />
     <Compile Include="Data\ProjetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Actions.cs" />
     <Compile Include="Service\ChiefRank.cs" />
+    <Compile Include="Service\Compose.cs" />
     <Compile Include="Service\Cook.cs" />
     <Compile Include="Service\CookChief.cs" />
     <Compile Include="Service\Customer.cs" />
