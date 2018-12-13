@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -47,44 +48,44 @@
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 16.5F, System.Drawing.FontStyle.Bold);
             this.textBox2.Location = new System.Drawing.Point(3, 3);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 25);
+            this.textBox2.Size = new System.Drawing.Size(154, 27);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Scénario";
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.textBox3.Font = new System.Drawing.Font("Calibri", 16.5F, System.Drawing.FontStyle.Bold);
             this.textBox3.Location = new System.Drawing.Point(3, 45);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 25);
+            this.textBox3.Size = new System.Drawing.Size(244, 27);
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "Nombre client(s)";
             // 
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Font = new System.Drawing.Font("Calibri", 16.5F, System.Drawing.FontStyle.Bold);
             this.textBox4.Location = new System.Drawing.Point(3, 90);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(244, 25);
+            this.textBox4.Size = new System.Drawing.Size(244, 27);
             this.textBox4.TabIndex = 3;
             this.textBox4.Text = "Nombre serveur(s)";
             // 
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.textBox5.Font = new System.Drawing.Font("Calibri", 16.5F, System.Drawing.FontStyle.Bold);
             this.textBox5.Location = new System.Drawing.Point(3, 172);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(244, 25);
+            this.textBox5.Size = new System.Drawing.Size(244, 27);
             this.textBox5.TabIndex = 4;
             this.textBox5.Text = "Nombre cuisinier(s)";
             // 
@@ -151,20 +152,21 @@
             // 
             // domainUpDown1
             // 
+            this.domainUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.domainUpDown1.Location = new System.Drawing.Point(265, 4);
             this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(182, 20);
+            this.domainUpDown1.Size = new System.Drawing.Size(182, 26);
             this.domainUpDown1.TabIndex = 14;
-            this.domainUpDown1.Text = "domainUpDown1";
+            this.domainUpDown1.Text = "liste des scénarios";
             // 
             // textBox10
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold);
+            this.textBox10.Font = new System.Drawing.Font("Calibri", 16.5F, System.Drawing.FontStyle.Bold);
             this.textBox10.Location = new System.Drawing.Point(3, 134);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(244, 25);
+            this.textBox10.Size = new System.Drawing.Size(244, 27);
             this.textBox10.TabIndex = 9;
             this.textBox10.Text = "Nombre chef(s) de rang";
             // 
@@ -190,10 +192,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(253, 299);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(249, 299);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 56);
+            this.button1.Size = new System.Drawing.Size(87, 56);
             this.button1.TabIndex = 9;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
