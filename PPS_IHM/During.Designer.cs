@@ -36,8 +36,6 @@
             this.listActions = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -72,9 +70,11 @@
             // 
             // listActions
             // 
+            this.listActions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listActions.ItemHeight = 20;
             this.listActions.Location = new System.Drawing.Point(25, 51);
             this.listActions.Name = "listActions";
-            this.listActions.Size = new System.Drawing.Size(198, 238);
+            this.listActions.Size = new System.Drawing.Size(537, 224);
             this.listActions.TabIndex = 19;
             // 
             // button4
@@ -87,22 +87,12 @@
             this.button4.TabIndex = 11;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(248, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(340, 283);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // During
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listActions);
             this.Controls.Add(this.button2);
@@ -111,7 +101,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "During";
             this.Text = "During";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +113,6 @@
         private System.Windows.Forms.ListBox listActions;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 
 }
