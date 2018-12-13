@@ -8,10 +8,10 @@ namespace PPS_DLL.Service
 {
     public class Order
     {
-        public int Id;
+        //public int Id;
         public Table Table;
-        public Customer Customer;
-        int nbrOrderFinal;
+        //public Customer Customer;
+        //int nbrOrderFinal;
         public List<Recipe> Recipes;
 
         public Order(Table table)
@@ -29,6 +29,5 @@ namespace PPS_DLL.Service
         {
             this.Recipes.Remove(recipe);
         }
-
     }
 }

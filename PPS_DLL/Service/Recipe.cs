@@ -13,6 +13,7 @@ namespace PPS_DLL.Service
         public List<string> Categories;
         public int TimePrepare;
         public List<Recipe> RecipeList;
+        public bool IsFinished;
 
         public Recipe(int price, string name, List<string> cat, int timePrepare)
         {

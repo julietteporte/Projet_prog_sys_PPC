@@ -12,9 +12,9 @@ namespace PPS_DLL.Service
         public bool IsReserved { get; set; }
         public int NbrSatisfiedCustomer { get; set; }
         public Table Table { get; set; }
-        private IList<string> order;
         private int _presenceTime;
         public Recipe Recipe;
+        public List<Order> Orders;
 
         public Customer(IPresenceStrategy strategy)
         {
@@ -53,13 +53,9 @@ namespace PPS_DLL.Service
         public void Pay()
         {
             NbrSatisfiedCustomer++;
-            var price = Recipe.Price;
-            HotelMaster.Instance.Wallet = HotelMaster.Instance.Wallet + price;
-        }
-
-        public void OrderMenu()
-        {
-            // TODO implement here
+            var priceToPay = Recipe.Price;
+            this.Move(HotelMaster.Instance().GetHomeSquare(), null);
+            HotelMaster.Instance().Wallet = HotelMaster.Instance().Wallet + priceToPay;
         }
 
         public void Eat(int presenceTime)

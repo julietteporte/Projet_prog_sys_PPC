@@ -72,6 +72,16 @@ namespace PPS_DLL.Service
             //wait
         }
 
+        public void PlaceCustomers(Square square, Table table, List<Customer> c)
+        {
+            //c.Table = table;
+            foreach (Customer customer in c)
+            {
+                customer.Move(square, table);
+                this.GiveMenu(table);
+            }
+        }
+
 
         public Order TakeOrder(Customer customer)
         {

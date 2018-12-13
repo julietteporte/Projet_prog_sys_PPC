@@ -22,11 +22,7 @@ namespace PPS_DLL.Service
 
         public static Menu getInstance()
         {
-            if (instance == null)
-            {
-                instance = new Menu();
-            }
-            return instance;
+            return instance ?? (instance = new Menu());
         }
 
 

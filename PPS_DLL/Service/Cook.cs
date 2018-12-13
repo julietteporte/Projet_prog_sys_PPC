@@ -25,9 +25,8 @@ namespace PPS_DLL.Service
             {
                 var timeCook = recipe.TimePrepare;
                 var name = recipe.RecipeName;
-                Console.WriteLine("Plat finit : " + name + ", Temps : " + timeCook);
+                recipe.IsFinished = true;
             }
-            else Console.WriteLine("Cuisinier occupé tmtc");
         }
     }
 }
