@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetProgSys_PPC", "ProjetProgSys_PPC\ProjetProgSys_PPC.csproj", "{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_Sockets", "ProjetProgSys_PPC\PPS_Sockets.csproj", "{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_IHM", "..\Projet_prog_sys_PPC\WindowsFormsApp1\PPS_IHM.csproj", "{86A2726B-6C39-4C50-985D-AA9F388453FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_DLL", "PPS_DLL\PPS_DLL.csproj", "{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A2726B-6C39-4C50-985D-AA9F388453FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A2726B-6C39-4C50-985D-AA9F388453FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A2726B-6C39-4C50-985D-AA9F388453FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A2726B-6C39-4C50-985D-AA9F388453FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
