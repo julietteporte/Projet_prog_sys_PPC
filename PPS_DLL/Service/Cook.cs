@@ -8,10 +8,6 @@ namespace PPS_DLL.Service
 {
     public class Cook
     {
-
-        Recipe recipe = new Recipe();
-        public int Id;
-        public bool HaveToCook;
         public bool IsAvailable;
 
         public Cook()
@@ -19,12 +15,10 @@ namespace PPS_DLL.Service
 
         }
 
-        public void Cooking(Recipe recipe)
+        public void Cooking(Recipe recipe) // cuisine la recette demande 
         {
-            if (HaveToCook == true && IsAvailable == true)
+            if (IsAvailable == true)
             {
-                var timeCook = recipe.TimePrepare;
-                var name = recipe.RecipeName;
                 recipe.IsFinished = true;
             }
         }

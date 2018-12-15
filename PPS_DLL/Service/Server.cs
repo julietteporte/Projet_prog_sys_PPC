@@ -8,6 +8,11 @@ namespace PPS_DLL.Service
 {
     public class Server : People , IMobile
     {
+
+        public Square ActualSquare { get; set; }
+        public Table ActualTable { get; set; }
+        public bool IsAvailable;
+
         public Server()
         {
 
@@ -21,16 +26,16 @@ namespace PPS_DLL.Service
             get { return Id; }
         }
 
-        public override void Wait()
+        public override void Wait(Square newSquare, Table newTable)
         {
-
+            this.ActualTable = newTable;
+            this.ActualSquare = newSquare;
         }
 
         /// <summary>
         /// Implémentation IMobile
         /// </summary>
-        public Square ActualSquare { get; set; }
-        public Table ActualTable { get; set; }
+        
         public void Move(Square newSquare, Table newTable)
         {
             this.ActualTable = newTable;
@@ -41,12 +46,12 @@ namespace PPS_DLL.Service
         /// Methods
         /// </summary>
 
-        public void Serve(Customer customer)
+        public void Serve(Order order) //sert la commande d'une table 
         {
             
         }
 
-        public void ClearTable(Table t)
+        public void ClearTable(Table t) // nettoie la table
         {
             if (t.IsCleaned == false)
             {

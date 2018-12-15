@@ -8,6 +8,6 @@ namespace PPS_DLL.Service
 {
     public interface IPresenceStrategy
     {
-        int GetPresenceTime(int PresenceTime);
+        int GetPresenceTime(int presenceTime);
     }
 }

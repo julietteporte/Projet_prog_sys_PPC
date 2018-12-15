@@ -11,11 +11,11 @@ namespace PPS_DLL.Service
     public abstract class People
     {
         ProjetContext context;
-        public abstract void Wait();
+        public abstract void Wait(Square newSquare, Table newTable);
         public abstract int Id { get; }
         public People() {
             context = new ProjetContext();
-}
+        }
         public void Add(Business.People business)
         {
             var entity = MapperPeople.Map(business);
@@ -45,6 +45,5 @@ namespace PPS_DLL.Service
 
         }
     }
+}
 
-}
-}

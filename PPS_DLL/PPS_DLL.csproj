@@ -152,12 +152,10 @@
     <Compile Include="Service\HotelMaster.cs" />
     <Compile Include="Service\ICustomer.cs" />
     <Compile Include="Service\IMobile.cs" />
-    <Compile Include="Service\Menu.cs" />
     <Compile Include="Service\NormalCustomer.cs" />
     <Compile Include="Service\Order.cs" />
     <Compile Include="Service\People.cs" />
     <Compile Include="Service\Recipe.cs" />
-    <Compile Include="Service\Reservation.cs" />
     <Compile Include="Service\Scenario.cs" />
     <Compile Include="Service\Server.cs" />
     <Compile Include="Service\SlowCustomer.cs" />

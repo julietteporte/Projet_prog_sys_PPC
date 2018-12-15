@@ -16,6 +16,8 @@ namespace PPS_DLL.Service
         public float Wallet;
         private static HotelMaster _instance = null;
         private int NbrWelcomedCustomer;
+        public Square ActualSquare { get; set; }
+        public Table ActualTable { get; set; }
 
         /// <summary>
         /// Singleton
@@ -53,9 +55,10 @@ namespace PPS_DLL.Service
             get { return Id; }
         }
 
-        public override void Wait()
+        public override void Wait(Square newSquare, Table newTable)
         {
-
+            this.ActualTable = newTable;
+            this.ActualSquare = newSquare;
         }
 
         /// <summary>
@@ -72,10 +75,10 @@ namespace PPS_DLL.Service
             while (true)
             {
                 this.GroupCustomers();
-                while (this.WaitingGroups != null) //while there are groups waiting outside the restaurant entrance
+                while (this.WaitingGroups != null) //quand des groupes attendent
                 {
                     ChiefRank goodRankChief = null;
-                    foreach (ChiefRank rankChief in this.ChievesRank) //find a rankchief
+                    foreach (ChiefRank rankChief in this.ChievesRank) //recherche de chef de rang
                     {
                         if (rankChief.ActualSquare == HotelMaster.Instance().GetHomeSquare())
                         {
@@ -84,13 +87,13 @@ namespace PPS_DLL.Service
                         }
                     }
 
-                    if (goodRankChief != null)
+                    if (goodRankChief != null) //on assigne des tables une fois le chef de rang trouvé
                     {
                         List<Customer> group = this.WaitingGroups[0];
-                        this.Welcome(group); //say hello
-                        Table table = this.AssignTable(group);
-                        goodRankChief.PlaceCustomers(this.FindSquare(table), table, group); // place customers group to designed table
-                        this.WaitingGroups.Remove(this.WaitingGroups[0]);  //customer groups aren't waiting anymore
+                        this.Welcome(group); // on accueille le groupe
+                        Table table = this.AssignTable(group); // on assigne
+                        goodRankChief.PlaceCustomers(this.FindSquare(table), table, group); // on ordonne au chef de rang de placer les clients a la bonne table
+                        this.WaitingGroups.Remove(this.WaitingGroups[0]);  //les clients n'attendent plus
                     }
                 }
             }
@@ -104,16 +107,16 @@ namespace PPS_DLL.Service
             int nbrCustomersPerGroup = nbrCustomers / coef;
             int nbrCustomersLeft = nbrCustomers % coef;
             List<Customer> customerGroup;
-            Customer c;
+            Customer customer;
 
             for (int i = 0; i < coef; i++)
             {
                 customerGroup = new List<Customer>();
                 for (int j = 0; j < nbrCustomersPerGroup; j++)
                 {
-                    c = this.WaitingCustomers[j];
-                    this.WaitingCustomers.Remove(c);
-                    customerGroup.Add(c);
+                    customer = this.WaitingCustomers[j];
+                    this.WaitingCustomers.Remove(customer);
+                    customerGroup.Add(customer);
                 }
                 this.WaitingGroups.Add(customerGroup);
             }
@@ -121,20 +124,20 @@ namespace PPS_DLL.Service
             if (nbrCustomersLeft != 0)
             {
                 customerGroup = new List<Customer>();
-                foreach (Customer customer in this.WaitingCustomers)
+                foreach (Customer _customer in this.WaitingCustomers)
                 {
-                    this.WaitingCustomers.Remove(customer);
-                    customerGroup.Add(customer);
+                    this.WaitingCustomers.Remove(_customer);
+                    customerGroup.Add(_customer);
                 }
                 this.WaitingGroups.Add(customerGroup);
             }
         }
 
-        private Table AssignTable(List<Customer> customers)
+        private Table AssignTable(List<Customer> customers) // assignation d'une table a un groupe de client
         {
             List<Table> availableTables = new List<Table>();
             Table bestTable = null;
-            foreach (Square square in this.Squares)
+            foreach (Square square in this.Squares) // Ajout de table prete 
             {
                 foreach (Table table in square.ListTables)
                 {
@@ -145,9 +148,9 @@ namespace PPS_DLL.Service
                 }
             }
 
-            bestTable = availableTables[0];
+            bestTable = availableTables[0]; // recuperation de la premiere table disponible 
 
-            foreach (Table table in availableTables)
+            foreach (Table table in availableTables) // optimisation de la table choisie en fonction du nombre de client dans le groupe
             {
                 if (table.Capacity >= customers.Count && table.Capacity < bestTable.Capacity)
                 {
@@ -160,7 +163,7 @@ namespace PPS_DLL.Service
             return bestTable;
         }
 
-        private Square FindSquare(Table table)
+        private Square FindSquare(Table table) // Recuperation du carre appartenant a une table
         {
             foreach (Square square in this.Squares)
             {
@@ -173,7 +176,7 @@ namespace PPS_DLL.Service
             return null;
         }
 
-        private int SetRandomGroupNumber()
+        private int SetRandomGroupNumber() // création d'un groupe de client aleatoire depuis la liste des clients en attente
         {
             Random r = new Random();
             int rInt = r.Next(0, this.WaitingCustomers.Count);
@@ -234,7 +237,7 @@ namespace PPS_DLL.Service
         /// @param Customer 
         /// @return
         /// </summary>
-        public void CollectMoney(Customer customer)
+        public void CollectMoney(Customer customer) // on encaisse le prix de la recette
         {
             foreach (Order order in customer.Orders)
             {

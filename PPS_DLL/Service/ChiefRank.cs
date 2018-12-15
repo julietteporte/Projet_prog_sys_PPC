@@ -28,9 +28,10 @@ namespace PPS_DLL.Service
             get { return Id; }
         }
 
-        public override void Wait()
+        public override void Wait(Square newSquare, Table newTable)
         {
-
+            this.ActualTable = newTable;
+            this.ActualSquare = newSquare;
         }
 
         /// <summary>
@@ -48,11 +49,10 @@ namespace PPS_DLL.Service
         /// Method
         /// </summary>
 
-        public void Dress(Table table)
+        public void Dress(Table table) // Nettoyage et mise des couverts 
         {
             if (table.IsCleaned == false)
             {
-                Console.WriteLine("Table nettoyée");
                 table.IsCleaned = true;
             }
             else if (table.IsDressed == false)
@@ -62,7 +62,7 @@ namespace PPS_DLL.Service
         }
 
 
-        public void GiveMenu(Table table)
+        public void GiveMenu(Table table) //Renvoit une recette aleatoire depuis le client 
         {
             foreach (Customer customer in table.Customers)
             {
@@ -72,10 +72,10 @@ namespace PPS_DLL.Service
             //wait
         }
 
-        public void PlaceCustomers(Square square, Table table, List<Customer> c)
+        public void PlaceCustomers(Square square, Table table, List<Customer> customers) // Deplacement du client a sa table et on lui donne le menu
         {
             //c.Table = table;
-            foreach (Customer customer in c)
+            foreach (Customer customer in customers)
             {
                 customer.Move(square, table);
                 this.GiveMenu(table);
