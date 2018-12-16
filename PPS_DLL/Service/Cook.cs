@@ -8,7 +8,7 @@ namespace PPS_DLL.Service
 {
     public class Cook
     {
-        public bool IsAvailable;
+        public bool IsAvailable { get; set; }
 
         public Cook()
         {
@@ -19,6 +19,7 @@ namespace PPS_DLL.Service
         {
             if (IsAvailable == true)
             {
+                var time = recipe.TimePrepare; // temps pour le thread
                 recipe.IsFinished = true;
             }
         }

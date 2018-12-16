@@ -13,11 +13,11 @@ namespace PPS_DLL.Service
         public List<List<Customer>> WaitingGroups { get; }
         public List<Customer> BuyingCustomers { get; }
         public List<Square> Squares { get; }
-        public float Wallet;
+        public float Wallet { get; set; }
         private static HotelMaster _instance = null;
-        private int NbrWelcomedCustomer;
         public Square ActualSquare { get; set; }
         public Table ActualTable { get; set; }
+        public int NbrWelcomedCustomer;
 
         /// <summary>
         /// Singleton
@@ -31,7 +31,6 @@ namespace PPS_DLL.Service
             this.WaitingGroups = new List<List<Customer>>();
             this.Squares = new List<Square>
             {
-                new Square(),
                 new Square(),
                 new Square()
             };
@@ -86,7 +85,7 @@ namespace PPS_DLL.Service
                             break;
                         }
                     }
-
+                    
                     if (goodRankChief != null) //on assigne des tables une fois le chef de rang trouvé
                     {
                         List<Customer> group = this.WaitingGroups[0];
@@ -101,7 +100,7 @@ namespace PPS_DLL.Service
 
         public void GroupCustomers()
         {
-            //divide a list of waiting customers into a random number of groups
+            //on crée un groupe de client parmis ceux qui attendent de faocn aléatoire
             int nbrCustomers = this.WaitingCustomers.Count;
             int coef = this.SetRandomGroupNumber();
             int nbrCustomersPerGroup = nbrCustomers / coef;
@@ -137,9 +136,9 @@ namespace PPS_DLL.Service
         {
             List<Table> availableTables = new List<Table>();
             Table bestTable = null;
-            foreach (Square square in this.Squares) // Ajout de table prete 
+            foreach (Square square in this.Squares)  
             {
-                foreach (Table table in square.ListTables)
+                foreach (Table table in square.ListTables) // Ajout de table prete
                 {
                     if (table.IsAvailable && table.IsDressed)
                     {
@@ -182,72 +181,37 @@ namespace PPS_DLL.Service
             int rInt = r.Next(0, this.WaitingCustomers.Count);
             return rInt;
         }
-
-        /// <summary>
-        /// @param RankChief 
-        /// @return
-        /// </summary>
+        
         public void AddRankChief(ChiefRank rankChief)
         {
             this.ChievesRank.Add(rankChief);
         }
-
-        /// <summary>
-        /// @param RankChief 
-        /// @return
-        /// </summary>
+        
         public void RemoveRankChief(ChiefRank rankChief)
         {
             this.ChievesRank.Remove(rankChief);
         }
-
-        /// <summary>
-        /// @return
-        /// </summary>
+    
         public void AddWaitingCustomer(Customer c)
         {
             this.WaitingCustomers.Add(c);
         }
 
-        /// <summary>
-        /// @return
-        /// </summary>
         public void RemoveWaitingCustomer(Customer c)
         {
             this.WaitingCustomers.Remove(c);
         }
 
-        /// <summary>
-        /// @return
-        /// </summary>
         public void AddBuyingCustomer(Customer c)
         {
             this.BuyingCustomers.Add(c);
         }
-
-        /// <summary>
-        /// @return
-        /// </summary>
+        
         public void RemoveBuyingCustomer(Customer c)
         {
             this.BuyingCustomers.Remove(c);
         }
-
-        /// <summary>
-        /// @param Customer 
-        /// @return
-        /// </summary>
-        public void CollectMoney(Customer customer) // on encaisse le prix de la recette
-        {
-            foreach (Order order in customer.Orders)
-            {
-                foreach (Recipe recipe in order.Recipes)
-                {
-                    this.Wallet += recipe.Price;
-                }
-            }
-        }
-
+        
         public Square GetHomeSquare()
         {
             return this.Squares[0];

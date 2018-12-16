@@ -12,13 +12,14 @@ namespace PPS_DLL.Service
         public bool IsReserved { get; set; }
         public int NbrSatisfiedCustomer { get; set; }
         public Table Table { get; set; }
-        private int _presenceTime;
-        public Recipe Recipe;
-        public List<Order> Orders;
+        public int presenceTime { get; set; }
+        public Recipe Recipe { get; set; }
+        public List<Order> Orders { get; set; }
 
         public Customer(IPresenceStrategy strategy)
         {
-
+            this.Strategy = new FastStrategy();
+            this.presenceTime = Strategy.GetPresenceTime(presenceTime);
         }
 
         /// <summary>
@@ -59,14 +60,13 @@ namespace PPS_DLL.Service
             HotelMaster.Instance().Wallet = HotelMaster.Instance().Wallet + priceToPay;
         }
 
-        public void Eat(int presenceTime) // le client mange en fonction du temps de sa strategie
+        public void Eat(int time) // le client mange en fonction du temps de sa strategie
         {
-            _presenceTime = Strategy.GetPresenceTime(presenceTime);
+            // thread en attente en fonction du temps
         }
 
         public Recipe GetRandomRecipe() // retourne une recette aleatoire
         {
-            
             return null;
         }
     }

@@ -8,26 +8,15 @@ namespace PPS_DLL.Service
 {
     public class Order
     {
-        //public int Id;
-        public Table Table;
-        //public Customer Customer;
-        //int nbrOrderFinal;
-        public List<Recipe> Recipes;
+        public Table Table { get; set; }
+        public Recipe recipe { get; set; }
+        public Customer Customer { get; set; }
 
-        public Order(Table table)
+        public Order(Table table, Customer customer, Recipe recipe)
         {
             this.Table = table;
-            this.Recipes = new List<Recipe>();
-        }
-
-        public void AddRecipe(Recipe recipe)
-        {
-            this.Recipes.Add(recipe);
-        }
-
-        public void RemoveRecipe(Recipe recipe)
-        {
-            this.Recipes.Remove(recipe);
+            this.Customer = customer;
+            this.recipe = recipe;
         }
     }
 }

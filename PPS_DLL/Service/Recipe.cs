@@ -11,12 +11,12 @@ namespace PPS_DLL.Service
     public class Recipe
     {
         ProjetContext context;
-        public int Price;
-        public string RecipeName;
-        public List<string> Categories;
-        public int TimePrepare;
-        public List<Recipe> RecipeList;
-        public bool IsFinished;
+        public int Price { get; set; }
+        public string RecipeName { get; set; }
+        public List<string> Categories { get; set; }
+        public int TimePrepare { get; set; }
+        public List<Recipe> RecipeList { get; set; }
+        public bool IsFinished { get; set; }
 
         public Recipe(int price, string name, List<string> cat, int timePrepare)
         {

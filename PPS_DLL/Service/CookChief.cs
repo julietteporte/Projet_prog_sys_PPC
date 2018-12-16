@@ -8,12 +8,12 @@ namespace PPS_DLL.Service
 {
     public class CookChief
     {
-        public List<Order> Orders;
-        public List<Order> GroupOrders;
-        public List<Order> FinishedOrders;
-        public List<Cook> Cookers;
-        public List<Cook> Servers;
-        public int nbrDoneRecipe;
+        public List<Order> Orders { get; set; }
+        public List<Order> GroupOrders { get; set; }
+        public List<Order> FinishedOrders { get; set; }
+        public List<Cook> Cookers { get; set; }
+        public List<Server> Servers { get; set; }
+        public int nbrDoneRecipe { get; set; }
 
         private CookChief()
         {
@@ -35,17 +35,9 @@ namespace PPS_DLL.Service
         /// <summary>
         /// Methods
         /// </summary>
-
-
         public void RegroupOrder() //regroupe les commandes de la meme table dans une liste
         {
-            for (int i = 0; i < this.Orders.Count; i++)
-            {
-                if (this.Orders[i].Table == this.Orders[i+1].Table)
-                {
-                    GroupOrders.Add(this.Orders[i]);
-                }
-            }
+            
         }
 
         public void CallCook(Recipe recipe) // on demande a un cuisinier disponible de cuisiner une recette demandee
@@ -58,7 +50,7 @@ namespace PPS_DLL.Service
                     {
                         cook.Cooking(recipe);
                         cook.IsAvailable = false;
-                        FinishedOrders.Add(Orders[i]); // on rajoute la commande parmi les commandes terminés
+                        FinishedOrders.Add(Orders[i]); // on rajoute la commande parmis les commandes terminés
                         break;
                     }
                 }
@@ -69,7 +61,23 @@ namespace PPS_DLL.Service
         {
             while (true)
             {
-                
+                while (this.FinishedOrders != null) // quand des commandes terminées sont a servir
+                {
+                    Server goodServer = null;
+                    foreach (Server server in this.Servers)
+                    {
+                        if (server.IsAvailable == true)
+                        {
+                            goodServer = server;
+                            break;
+                        }
+                    }
+
+                    if (goodServer != null) // on amene le plat de la commande
+                    {
+                        goodServer.Serve(FinishedOrders[0]);
+                    }
+                }
             }
         }
 
@@ -83,7 +91,7 @@ namespace PPS_DLL.Service
             this.Cookers.Remove(c);
         }
 
-        /*public void AddServer(Server s)
+        public void AddServer(Server s)
         {
             this.Servers.Add(s);
         }
@@ -91,7 +99,7 @@ namespace PPS_DLL.Service
         public void RemoveServer(Server s)
         {
             this.Servers.Remove(s);
-        }*/
+        }
 
         public void AddOrder(Order o)
         {

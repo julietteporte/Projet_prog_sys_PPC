@@ -11,7 +11,7 @@ namespace PPS_DLL.Service
 
         public Square ActualSquare { get; set; }
         public Table ActualTable { get; set; }
-        public bool IsAvailable;
+        public bool IsAvailable { get; set; }
 
         public Server()
         {
@@ -48,7 +48,8 @@ namespace PPS_DLL.Service
 
         public void Serve(Order order) //sert la commande d'une table 
         {
-            
+            this.Move(this.ActualSquare, order.Table); //on deplace le serveur a la table de la commande
+            order.Customer.Eat(order.Customer.presenceTime); // on fait manger le client en fonction de sa strategie
         }
 
         public void ClearTable(Table t) // nettoie la table
