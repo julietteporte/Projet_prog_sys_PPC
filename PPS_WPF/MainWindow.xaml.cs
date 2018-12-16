@@ -86,5 +86,10 @@ namespace PPS_WPF
         {
             Environment.Exit(1);
         }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
