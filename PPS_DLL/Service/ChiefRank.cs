@@ -9,9 +9,11 @@ namespace PPS_DLL.Service
     public class ChiefRank : People, IMobile
     {
 
-        public Square AttributedSquare;
-        public bool IsAvailable;
-        public List<Order> Orders;
+        public Square AttributedSquare { get; set; }
+        public bool IsAvailable { get; set; }
+        public List<Order> Orders { get; set; }
+        public Square ActualSquare { get; set; }
+        public Table ActualTable { get; set; }
 
         public ChiefRank(Square attributedSquare)
         {
@@ -28,16 +30,16 @@ namespace PPS_DLL.Service
             get { return Id; }
         }
 
-        public override void Wait()
+        public override void Wait(Square newSquare, Table newTable)
         {
-
+            this.ActualTable = newTable;
+            this.ActualSquare = newSquare;
         }
 
         /// <summary>
         /// Implementation IMobile
         /// </summary>
-        public Square ActualSquare { get; set; }
-        public Table ActualTable { get; set; }
+        
         public void Move(Square newSquare, Table newTable)
         {
             this.ActualTable = newTable;
@@ -48,11 +50,10 @@ namespace PPS_DLL.Service
         /// Method
         /// </summary>
 
-        public void Dress(Table table)
+        public void Dress(Table table) // Nettoyage et mise des couverts 
         {
             if (table.IsCleaned == false)
             {
-                Console.WriteLine("Table nettoyée");
                 table.IsCleaned = true;
             }
             else if (table.IsDressed == false)
@@ -62,20 +63,18 @@ namespace PPS_DLL.Service
         }
 
 
-        public void GiveMenu(Table table)
+        public void GiveMenu(Table table) //Renvoit une recette aleatoire depuis le client 
         {
-            foreach (Customer customer in table.Customers)
+            foreach (Customer customer in table.Customers) 
             {
-                customer.GetRandomRecipe();
-                //code here
+                customer.GetRandomRecipe(); // pour chaque client sur la table, on recupere une recette aleatoire
             }
             //wait
         }
 
-        public void PlaceCustomers(Square square, Table table, List<Customer> c)
+        public void PlaceCustomers(Square square, Table table, List<Customer> customers) // Deplacement du client a sa table et on lui donne le menu
         {
-            //c.Table = table;
-            foreach (Customer customer in c)
+            foreach (Customer customer in customers)
             {
                 customer.Move(square, table);
                 this.GiveMenu(table);
@@ -83,9 +82,9 @@ namespace PPS_DLL.Service
         }
 
 
-        public Order TakeOrder(Customer customer)
+        public Order TakeOrder(Customer customer) // on crée une commande depuis un client
         {
-            Order order = new Order(customer.ActualTable);
+            Order order = new Order(customer.ActualTable, customer, customer.Recipe);
             return order;
         }
     }

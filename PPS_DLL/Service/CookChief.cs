@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace PPS_DLL.Service
 {
-    public class CookChief : People
+    public class CookChief
     {
-        public List<Order> Orders;
-        public List<Order> GroupOrders;
-        public List<Cook> Cookers;
-        public int nbrDoneRecipe;
+        public List<Order> Orders { get; set; }
+        public List<Order> GroupOrders { get; set; }
+        public List<Order> FinishedOrders { get; set; }
+        public List<Cook> Cookers { get; set; }
+        public List<Server> Servers { get; set; }
+        public int nbrDoneRecipe { get; set; }
 
         private CookChief()
         {
@@ -31,52 +33,49 @@ namespace PPS_DLL.Service
         }
 
         /// <summary>
-        /// Implémentation People
-        /// </summary>
-        public override int Id
-        {
-            get { return Id; }
-        }
-
-        public override void Wait()
-        {
-
-        }
-
-
-        /// <summary>
         /// Methods
         /// </summary>
-
-        
-        public void RegroupOrder()
+        public void RegroupOrder() //regroupe les commandes de la meme table dans une liste
         {
-            foreach (Order o in this.Orders) // on parcourt toutes les orders
+            
+        }
+
+        public void CallCook(Recipe recipe) // on demande a un cuisinier disponible de cuisiner une recette demandee
+        {
+            for (int i = 0; i < Orders.Count; i++) // on parcourt les commandes en attente
             {
-                
+                foreach (Cook cook in this.Cookers) // on cherche un cooker dispo
+                {
+                    if (cook.IsAvailable == true) // on lui ordonne de cuisiner
+                    {
+                        cook.Cooking(recipe);
+                        cook.IsAvailable = false;
+                        FinishedOrders.Add(Orders[i]); // on rajoute la commande parmis les commandes terminés
+                        break;
+                    }
+                }
             }
         }
 
-        public void CallCook(Recipe recipe)
+        public void CallServer()
         {
             while (true)
             {
-                while (this.Orders != null) //quand on a des orders en attente
+                while (this.FinishedOrders != null) // quand des commandes terminées sont a servir
                 {
-                    Cook CookForOrder = null;
-                    foreach (Cook cook in this.Cookers) // on cherche un cooker dispo
+                    Server goodServer = null;
+                    foreach (Server server in this.Servers)
                     {
-                        if (cook.IsAvailable == true)
+                        if (server.IsAvailable == true)
                         {
-                            CookForOrder = cook;
+                            goodServer = server;
                             break;
                         }
                     }
 
-                    if (CookForOrder != null)
+                    if (goodServer != null) // on amene le plat de la commande
                     {
-                        CookForOrder.Cooking(recipe);
-                        CookForOrder.IsAvailable = false;
+                        goodServer.Serve(FinishedOrders[0]);
                     }
                 }
             }
@@ -90,6 +89,16 @@ namespace PPS_DLL.Service
         public void RemoveCooker(Cook c)
         {
             this.Cookers.Remove(c);
+        }
+
+        public void AddServer(Server s)
+        {
+            this.Servers.Add(s);
+        }
+
+        public void RemoveServer(Server s)
+        {
+            this.Servers.Remove(s);
         }
 
         public void AddOrder(Order o)

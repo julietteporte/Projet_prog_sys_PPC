@@ -11,7 +11,6 @@ namespace PPS_DLL.Service
         public int GetPresenceTime(int presenceTime)
         {
             return presenceTime * 2;
-
         }
     }
 }

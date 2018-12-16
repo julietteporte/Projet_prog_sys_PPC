@@ -12,13 +12,14 @@ namespace PPS_DLL.Service
         public bool IsReserved { get; set; }
         public int NbrSatisfiedCustomer { get; set; }
         public Table Table { get; set; }
-        private int _presenceTime;
-        public Recipe Recipe;
-        public List<Order> Orders;
+        public int presenceTime { get; set; }
+        public Recipe Recipe { get; set; }
+        public List<Order> Orders { get; set; }
 
         public Customer(IPresenceStrategy strategy)
         {
-
+            this.Strategy = new FastStrategy();
+            this.presenceTime = Strategy.GetPresenceTime(presenceTime);
         }
 
         /// <summary>
@@ -29,9 +30,10 @@ namespace PPS_DLL.Service
             get { return Id; }
         }
 
-        public override void Wait()
+        public override void Wait(Square newSquare, Table newTable)
         {
-
+            this.ActualTable = newTable;
+            this.ActualSquare = newSquare;
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace PPS_DLL.Service
         /// Methodes 
         /// </summary>
 
-        public void Pay()
+        public void Pay() //on amene le client au maitre d'hotel et il paye sa commande
         {
             NbrSatisfiedCustomer++;
             var priceToPay = Recipe.Price;
@@ -58,16 +60,13 @@ namespace PPS_DLL.Service
             HotelMaster.Instance().Wallet = HotelMaster.Instance().Wallet + priceToPay;
         }
 
-        public void Eat(int presenceTime)
+        public void Eat(int time) // le client mange en fonction du temps de sa strategie
         {
-            _presenceTime = Strategy.GetPresenceTime(presenceTime);
-            Console.WriteLine("Temps passé à manger : " + _presenceTime);
+            // thread en attente en fonction du temps
         }
 
-        public Recipe GetRandomRecipe()
+        public Recipe GetRandomRecipe() // retourne une recette aleatoire
         {
-            //Recipe AleaRecipe = new Recipe();
-            //return AleaRecipe;
             return null;
         }
     }
