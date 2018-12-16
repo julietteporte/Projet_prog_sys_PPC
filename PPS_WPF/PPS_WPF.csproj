@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Message.cs" />
+    <Compile Include="Parametres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,6 +101,16 @@
     <Resource Include="play.png" />
     <Resource Include="restart.png" />
     <Resource Include="pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PPS_DLL\PPS_DLL.csproj">
+      <Project>{ca946a4e-52ee-4ff4-9b80-ab3e57c1c558}</Project>
+      <Name>PPS_DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetProgSys_PPC\PPS_Sockets.csproj">
+      <Project>{fa47de3c-5841-414c-a13f-c2b81e8ad37d}</Project>
+      <Name>PPS_Sockets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
