@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PPS_DLL\PPS_DLL.csproj" />
-    <ProjectReference Include="..\PPS_IHM\PPS_IHM.csproj" />
   </ItemGroup>
 
 </Project>
