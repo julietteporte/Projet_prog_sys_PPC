@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace PPS_DLL.Service
 {
-    public class CookChiefSockets
+    public class RankChiefSocket
     {
 
         public static void StartClient(Order o)

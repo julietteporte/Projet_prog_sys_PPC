@@ -82,6 +82,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
@@ -145,8 +148,6 @@
     <Compile Include="Service\Actions.cs" />
     <Compile Include="Service\ChiefRank.cs" />
     <Compile Include="Service\Compose.cs" />
-    <Compile Include="Service\Cook.cs" />
-    <Compile Include="Service\CookChief.cs" />
     <Compile Include="Service\Customer.cs" />
     <Compile Include="Service\FastCustomer.cs" />
     <Compile Include="Service\HotelMaster.cs" />
@@ -155,9 +156,11 @@
     <Compile Include="Service\NormalCustomer.cs" />
     <Compile Include="Service\Order.cs" />
     <Compile Include="Service\People.cs" />
+    <Compile Include="Service\RankChiefSocket.cs" />
     <Compile Include="Service\Recipe.cs" />
     <Compile Include="Service\Scenario.cs" />
     <Compile Include="Service\Server.cs" />
+    <Compile Include="Service\ServerSocket.cs" />
     <Compile Include="Service\SlowCustomer.cs" />
     <Compile Include="Service\Square.cs" />
     <Compile Include="Service\StrategyPattern.cs" />

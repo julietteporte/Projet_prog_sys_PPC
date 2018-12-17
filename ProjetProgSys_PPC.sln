@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPS_Sockets", "ProjetProgSys_PPC\PPS_Sockets.csproj", "{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPS_Cuisine", "ProjetProgSys_PPC\PPS_Cuisine.csproj", "{FA47DE3C-5841-414C-A13F-C2B81E8AD37D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_DLL", "PPS_DLL\PPS_DLL.csproj", "{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}"
 EndProject
