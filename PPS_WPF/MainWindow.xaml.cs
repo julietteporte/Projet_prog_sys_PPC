@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PPS_DLL;
+using PPS_DLL.Service;
 
 namespace PPS_WPF
 {
@@ -44,6 +46,13 @@ namespace PPS_WPF
             serverStream.Flush();
 
             thread.RunWorkerAsync();
+
+            List<Business.Scenario> scenarioList = Scenario.select();
+            ScenarioChoice.ItemsSource = scenarioList;
+            ScenarioChoice.SelectedItem = scenarioList.First();
+            //Scenario_Choice.SelectedItem = scenarioList.Last();
+            //Scenario_Choice.SelectedItem = scenarioList.Where(i => i.id == 2).FirstOrDefault();
+            ScenarioChoice.DisplayMemberPath = "Name";
         }
 
         private void Thread_DoWork(object sender, DoWorkEventArgs e)
@@ -85,6 +94,11 @@ namespace PPS_WPF
         private void Start1_Closed(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void ScenarioChoiceSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Scenario_Nb = ScenarioChoice.SelectedIndex;
         }
     }
 }
