@@ -88,7 +88,7 @@ namespace PPS_WPF
         private void MessageAdd(Message message)
         {
             Run newLine = new Run("> " /*+ DateTime.Now.ToString("T") + " ["*/ + message.Author + /*"] " +*/ message.Text + "\n") { Foreground = message.Color };
-            //messageBox.Inlines.InsertBefore(messageBox.Inlines.FirstInline, newLine);
+            messageBox.Inlines.InsertBefore(messageBox.Inlines.FirstInline, newLine);
         }
 
         private void Start1_Closed(object sender, EventArgs e)
