@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPS_Cuisine", "ProjetProgSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_DLL", "PPS_DLL\PPS_DLL.csproj", "{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_WPF", "PPS_WPF\PPS_WPF.csproj", "{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPS_WPF", "PPS_WPF2\PPS_WPF.csproj", "{022F5B27-F476-4B26-8F37-E78448B693F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA946A4E-52EE-4FF4-9B80-AB3E57C1C558}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022F5B27-F476-4B26-8F37-E78448B693F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022F5B27-F476-4B26-8F37-E78448B693F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022F5B27-F476-4B26-8F37-E78448B693F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022F5B27-F476-4B26-8F37-E78448B693F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

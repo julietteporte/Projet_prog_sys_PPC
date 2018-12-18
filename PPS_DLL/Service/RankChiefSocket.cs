@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json;
+using PPS_DLL;
 
 namespace PPS_DLL.Service
 {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B4D1C7B5-C0A8-447A-B6BD-0582763CF0C2}</ProjectGuid>
+    <ProjectGuid>{022F5B27-F476-4B26-8F37-E78448B693F7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PPS_WPF</RootNamespace>
-    <AssemblyName>PPS_WPF</AssemblyName>
+    <RootNamespace>PPS_WPF2</RootNamespace>
+    <AssemblyName>PPS_WPF2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,14 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -59,27 +51,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Message.cs" />
     <Compile Include="Parametres.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,20 +86,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="accelerate.jpg" />
-    <Resource Include="play.png" />
-    <Resource Include="restart.png" />
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PPS_DLL\PPS_DLL.csproj">
-      <Project>{ca946a4e-52ee-4ff4-9b80-ab3e57c1c558}</Project>
-      <Name>PPS_DLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetProgSys_PPC\PPS_Cuisine.csproj">
-      <Project>{fa47de3c-5841-414c-a13f-c2b81e8ad37d}</Project>
-      <Name>PPS_Cuisine</Name>
-    </ProjectReference>
+    <Resource Include="play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="accelerate.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

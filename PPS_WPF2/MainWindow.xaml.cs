@@ -14,11 +14,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PPS_DLL;
 
 namespace PPS_WPF
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow 
     {
         private BackgroundWorker thread;
         private NetworkStream serverStream = default(NetworkStream);
@@ -28,7 +27,7 @@ namespace PPS_WPF
         public NetworkStream ServerStream { get => serverStream; set => serverStream = value; }
         public BackgroundWorker Thread1 { get => thread; set => thread = value; }
 
-        public static MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -48,7 +47,6 @@ namespace PPS_WPF
             ServerStream.Flush();
 
             Thread.DoWork += Thread_DoWork;
-            Thread.ProgressChanged += Thread_ProgressChanged;
             Thread.RunWorkerCompleted += Thread_RunWorkerCompleted;
 
             Thread.RunWorkerAsync();
@@ -74,6 +72,16 @@ namespace PPS_WPF
         private void Thread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageAdd(new Message { Text = "Connexion terminée"});
+        }
+
+        private void MessageAdd(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
